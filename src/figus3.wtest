@@ -1,0 +1,18 @@
+
+test "testX" {
+
+// El pais con mas figuritas
+
+// sabiendo el continente de cada pais
+// - si en un continente, todos los jugadores son muy valiosos (>8)
+// - de que continente, es el jugador mas valiosos del mundo
+
+// sabiendo la cotizacion del jugador/figurita 
+// - todos los jugadores con tal valoracion
+// - que pais tiene el mayor promedio de valoracion de sus jugadores 
+
+
+
+	assert.that(true)
+
+}
