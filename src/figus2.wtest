@@ -1,0 +1,36 @@
+import figus2.* 
+
+describe "figus2" {
+
+    const messi = new Jugador(pais = "arg")
+    const diMaria = new Jugador(pais = "arg")
+    const ronaldo = new Jugador(pais = "portu")
+     
+	method initialize() {
+		album.obtenerFigurita(messi)
+		album.obtenerFigurita(diMaria)
+		album.obtenerFigurita(ronaldo)
+	}
+     
+
+test "cantidad faltante" {
+    assert.equals(697, album.cantidadFaltantes()) 
+}
+
+test "dos jugadores son del mismo pais"{
+	assert.that(messi.mismoPaisQue(diMaria))
+}
+
+test "dos jugadores son de distinto pais"{
+	assert.notThat(messi.mismoPaisQue(ronaldo))
+}
+
+test "cantidad de jugadores de un pais grande"{
+	assert.equals(2, album.cantidadFigus("arg"))
+}
+
+test "cantidad de jugadores de un pais chico"{
+	assert.equals(1, album.cantidadFigus("portu"))
+}
+
+}

@@ -1,15 +1,12 @@
 object album {
 	
 	const figuritasTotales = 700
-//	const figuritas = []
 	const paises = []
 	 
 	method cantidadFaltantes() = figuritasTotales 
 		- paises.sum({p=>p.cantidadFigus()})
 	
-//	method obtenerFigurita(figu){
-//		figuritas.add(figu)
-//	}
+
 	method agregarPais(pais){
 		paises.add(pais)
 	}
@@ -18,12 +15,6 @@ object album {
 		paises.any({p=> p.contieneA(j1) && p.contieneA(j2)})
 	
 }
-
-//class Jugador {
-//	var property pais
-//	
-//	method mismoPaisQue(unJugador) = pais == unJugador.pais() 
-//}
 
 
 class Pais{
