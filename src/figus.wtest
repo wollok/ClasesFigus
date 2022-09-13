@@ -1,4 +1,22 @@
+import figus.* 
+
 describe "figus" {
+
+//     const messi = new Jugador(pais = "arg")
+//     const diMaria = new Jugador(pais = "arg")
+//     const ronaldo = new Jugador(pais = "portu")
+     
+    const argentina = new Pais()
+    const portugal = new Pais()
+
+	method initialize() {
+		argentina.obtenerFigurita("messi")
+		argentina.obtenerFigurita("diMaria")
+		portugal.obtenerFigurita("ronaldo")
+		album.agregarPais(argentina)
+		album.agregarPais(portugal)
+	}
+     
 // messi es de argentina
 // dimaria es de argentina
 // ronaldo es de portugal
@@ -6,22 +24,44 @@ describe "figus" {
 // en total son 700 figus
 
 test "cantidad faltante" {
-
-
-// 697 
+	
+    assert.equals(697, album.cantidadFaltantes()) 
 	
 }
+//
+//
+//test "dos jugadores son del mismo pais"{
+//	
+//	assert.that(messi.mismoPaisQue(diMaria))
+//}
+//
+//test "dos jugadores son de distinto pais"{
+//	
+//	assert.notThat(messi.mismoPaisQue(ronaldo))
+//}
+
 
 
 test "dos jugadores son del mismo pais"{
-	
-	// messi y de maria son del mismo pais
-	// messi y ronaldo no son del mismo pais
+
+	assert.that(album.sonDelMismoPais("messi","diMaria"))
 }
 
-test "cantidad de jugadores de un pais"{
-	// en argentina 2
-	// en portugal 1
+test "dos jugadores son de distinto pais"{
+	
+	assert.notThat(album.sonDelMismoPais("ronaldo","diMaria"))
+}
+
+test "cantidad de jugadores de un pais grande"{
+	
+	assert.equals(2, argentina.cantidadFigus())
+	
+}
+
+test "cantidad de jugadores de un pais chico"{
+	
+	assert.equals(1, portugal.cantidadFigus())
+	
 }
 
 
