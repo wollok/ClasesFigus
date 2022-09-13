@@ -1,6 +1,28 @@
+describe "figus" {
+// messi es de argentina
+// dimaria es de argentina
+// ronaldo es de portugal
 
-test "testX" {
+// en total son 700 figus
 
-	assert.that(true)
+test "cantidad faltante" {
+
+
+// 697 
+	
+}
+
+
+test "dos jugadores son del mismo pais"{
+	
+	// messi y de maria son del mismo pais
+	// messi y ronaldo no son del mismo pais
+}
+
+test "cantidad de jugadores de un pais"{
+	// en argentina 2
+	// en portugal 1
+}
+
 
 }
