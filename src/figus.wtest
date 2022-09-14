@@ -2,13 +2,18 @@ import figus.*
 
 describe "figus" {
 
-    const argentina = new Pais()
-    const portugal = new Pais()
+    const argentina = new Pais(continente = "america")
+    const portugal = new Pais(continente = "europa")
+    const messi = new Jugador(valoracion = 10)
+    const diMaria = new Jugador(valoracion = 9)
+    const ronaldo = new Jugador(valoracion = 5)
 
 	method initialize() {
-		argentina.obtenerFigurita("messi")
-		argentina.obtenerFigurita("diMaria")
-		portugal.obtenerFigurita("ronaldo")
+		
+		
+		argentina.obtenerFigurita(messi)
+		argentina.obtenerFigurita(diMaria)
+		portugal.obtenerFigurita(ronaldo)
 		album.agregarPais(argentina)
 		album.agregarPais(portugal)
 	}
@@ -21,11 +26,11 @@ test "cantidad faltante" {
 
 
 test "dos jugadores son del mismo pais"{
-	assert.that(album.sonDelMismoPais("messi","diMaria"))
+	assert.that(album.sonDelMismoPais(messi,diMaria))
 }
 
 test "dos jugadores son de distinto pais"{
-	assert.notThat(album.sonDelMismoPais("ronaldo","diMaria"))
+	assert.notThat(album.sonDelMismoPais(ronaldo,diMaria))
 }
 
 test "cantidad de jugadores de un pais grande"{
@@ -36,5 +41,20 @@ test "cantidad de jugadores de un pais chico"{
 	assert.equals(1, portugal.cantidadFigus())
 }
 
+test "El pais con mas figuritas" {
+	assert.equals(argentina, album.paisConMasFiguritas())
+}
+
+test "los americanos son todos valiosos" {
+	assert.that(album.sonTodosValiosos("america"))
+}
+
+test "los europeos no son todos valiosos" {
+	assert.notThat(album.sonTodosValiosos("europa"))
+}
+
+test "Valoracion promedio" {
+	assert.equals(argentina, album.paisMasValioso())
+}
 
 }

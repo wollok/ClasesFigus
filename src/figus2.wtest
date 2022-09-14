@@ -2,9 +2,11 @@ import figus2.*
 
 describe "figus2" {
 
-    const messi = new Jugador(pais = "arg")
-    const diMaria = new Jugador(pais = "arg")
-    const ronaldo = new Jugador(pais = "portu")
+	const argentina = new Pais(continente = "america")
+	const portugal = new Pais(continente = "europa")
+    const messi = new Jugador(pais = argentina, valoracion = 10)
+    const diMaria = new Jugador(pais = argentina, valoracion = 9)
+    const ronaldo = new Jugador(pais = portugal, valoracion = 5)
      
 	method initialize() {
 		album.obtenerFigurita(messi)
@@ -26,11 +28,24 @@ test "dos jugadores son de distinto pais"{
 }
 
 test "cantidad de jugadores de un pais grande"{
-	assert.equals(2, album.cantidadFigus("arg"))
+	assert.equals(2, album.cantidadFigus(argentina))
 }
 
 test "cantidad de jugadores de un pais chico"{
-	assert.equals(1, album.cantidadFigus("portu"))
+	assert.equals(1, album.cantidadFigus(portugal))
+}
+
+test "El pais con mas figuritas" {
+	assert.equals(argentina, album.paisConMasFiguritas())
+}
+test "los europeos no son todos valiosos" {
+	assert.notThat(album.sonTodosValiosos("europa"))
+}
+test "los americanos son todos valiosos" {
+	assert.that(album.sonTodosValiosos("america"))
+}
+test "Valoracion promedio" {
+	assert.equals(argentina, album.paisMasValioso())
 }
 
 }
